@@ -8,8 +8,8 @@ import reto.kruger.vacunacion.model.User;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, String> {
     Optional<User> findByUsername(String username);
-    Boolean existsUsername(String username);
+    Boolean existsByUsername(String username);
     Boolean existsByEmail (String email);
 }
