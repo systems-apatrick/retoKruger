@@ -1,0 +1,6 @@
+package reto.kruger.vacunacion.model;
+
+public enum ERole {
+    ROLE_USER,
+    ROLE_ADMIN
+}
