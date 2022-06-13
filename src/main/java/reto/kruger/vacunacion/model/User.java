@@ -1,6 +1,7 @@
 package reto.kruger.vacunacion.model;
 
 
+import lombok.Data;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -10,7 +11,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="users")
+@Table(name="users",
+        uniqueConstraints = {
+        @UniqueConstraint(columnNames = "username"), @UniqueConstraint(columnNames = "email")
+        })
 public class User {
     @Id
     @NotBlank
@@ -51,21 +55,10 @@ public class User {
     public User() {
     }
 
-    public User(String id, String name, String lastname, String email, String username, String password, Set<Role> roles) {
-        this.id = id;
-        this.name = name;
-        this.lastname = lastname;
+    public User(String email, String username, String password) {
         this.email = email;
         this.username = username;
         this.password = password;
-        this.roles = roles;
-    }
-
-    public User(String id, Date birth_date, String address, String phone_number) {
-        this.id = id;
-        this.birth_date = birth_date;
-        this.address = address;
-        this.phone_number = phone_number;
     }
 
     public String getId() {
