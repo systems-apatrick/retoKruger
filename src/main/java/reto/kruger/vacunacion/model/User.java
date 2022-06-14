@@ -19,7 +19,7 @@ public class User {
     @Id
     @NotBlank
     @Pattern(regexp="[\\d]{10}", message="La cédula debe tener 10 digitos")
-    private String id;
+    private String id_user;
 
     @NotNull
     private String name;
@@ -42,8 +42,8 @@ public class User {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="user_roles",
-                joinColumns = @JoinColumn(name = "user_id"),
-                inverseJoinColumns = @JoinColumn(name = "role_id")
+                joinColumns = @JoinColumn(name = "id_user"),
+                inverseJoinColumns = @JoinColumn(name = "id_rol")
     )
     private Set<Role> roles = new HashSet<>();
 
@@ -61,12 +61,12 @@ public class User {
         this.password = password;
     }
 
-    public String getId() {
-        return id;
+    public String getId_user() {
+        return id_user;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId_user(String id_user) {
+        this.id_user = id_user;
     }
 
     public String getName() {
