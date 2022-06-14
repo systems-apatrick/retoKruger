@@ -6,6 +6,6 @@ import reto.kruger.vacunacion.model.Role;
 
 import java.util.Optional;
 
-public interface RoleRepository extends JpaRepository<Role, Long> {
+public interface RoleRepository extends JpaRepository<Role, String> {
     Optional<Role> findByName(ERole name);
 }
